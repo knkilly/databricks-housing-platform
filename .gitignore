@@ -1,44 +1,184 @@
-# Environment variables
-.env
-*.env
+# ============================================================================
+# Databricks Housing Platform - Git Ignore Rules
+# ============================================================================
 
+# Environment variables and secrets
+.env*
+.env.local
+.env.*.local
+*.env
+config/secrets.json
+
+# Databricks credentials (CRITICAL - never commit!)
+trino/catalog/databricks.properties*
+
+# ============================================================================
 # Python
+# ============================================================================
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
 venv/
 env/
 ENV/
+env.bak/
+venv.bak/
+.venv/
 
-# Data files (too large for GitHub)
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Spyder
+.spyderproject
+.spyproject
+
+# ============================================================================
+# Data Files (too large for Git)
+# ============================================================================
 data/*.csv
 data/*.parquet
 data/*.json
-*.db
+data/*.xlsx
+data/*.db
+data/*.sqlite
+data/downloads/*
+data/bronze/*
+data/silver/*
+data/gold/*
 
+# Keep directory structure but ignore contents
+!data/.gitkeep
+!data/downloads/.gitkeep
+!data/bronze/.gitkeep
+!data/silver/.gitkeep
+!data/gold/.gitkeep
+
+# ============================================================================
 # Logs
+# ============================================================================
 logs/*.log
 *.log
+logs/*
+!logs/.gitkeep
 
-# Trino data directory
+# Trino logs and data
 trino/data/
+trino/*.log
 
-# OS files
-.DS_Store
+# ============================================================================
+# Trino temporary files
+# ============================================================================
+data/trino/
+data/spill/
+
+# ============================================================================
+# Database files
+# ============================================================================
+*.db
+*.sqlite
+*.sqlite3
+
+# Metabase data
+metabase-data/
+
+# ============================================================================
+# OS Files
+# ============================================================================
+# Windows
 Thumbs.db
-desktop.ini
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
 
-# IDE
-.vscode/
-.idea/
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================================================
+# Temporary files
+# ============================================================================
+*.tmp
+*.temp
 *.swp
 *.swo
+*~
+.~*
 
-# Jupyter Notebooks checkpoints
-.ipynb_checkpoints/
+# ============================================================================
+# Archives
+# ============================================================================
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
 
-# Sensitive credentials
-trino/catalog/databricks.properties
-config/credentials.json
+# ============================================================================
+# Documentation builds
+# ============================================================================
+docs/_build/
+site/
+
+# ============================================================================
+# Test coverage
+# ============================================================================
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# ============================================================================
+# Backup files
+# ============================================================================
+*.bak
+*.backup
+*.old

@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  trino:
+    image: trinodb/trino:latest
+    container_name: trino-housing
+    hostname: trino-coordinator
+    ports:
+      - "8080:8080"
+    volumes:
+      - trino-data:/data
+      - ./sql:/sql
+    environment:
+      - TRINO_ENVIRONMENT=development
+    networks:
+      - housing-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/v1/info"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+volumes:
+  trino-data:
+    driver: local
+
+networks:
+  housing-network:
+    driver: bridge
+    name: databricks-housing-network
