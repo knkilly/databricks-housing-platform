@@ -71,3 +71,16 @@ Make sure docker.yaml is saved using 'LF' not 'CRLF'.
 Updated docker-compose to use the latest version of trinodb/trino.
 Used VSCode 'Run Services' to create the container (checked in Docker Desktop app).
 
+### 4b - Using Trino inside Docker container
+
+```powershell
+# Run a single query
+docker exec -it trino-housing trino --execute "SHOW CATALOGS;"
+
+# Start interactive session
+docker exec -it trino-housing trino
+
+# Now you're in Trino's built-in CLI (inside container)
+trino> SHOW CATALOGS;
+```
+
