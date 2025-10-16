@@ -64,3 +64,8 @@ databricks-housing-platform/
 │   └── gold/
 └── docs/                       # Documentation
 ```
+
+## 4 - Create Docker configuration
+
+Make sure docker.yaml is saved using 'LF' not 'CRLF'.
+
