@@ -2,18 +2,14 @@ version: '3.8'
 
 services:
   trino:
-    image: trinodb/trino:435
+    image: trinodb/trino:latest
     container_name: trino-housing
     hostname: trino-coordinator
     ports:
       - "8080:8080"
     volumes:
-      # Mount configuration directories
-      - ./trino/etc:/etc/trino:ro
-      - ./trino/catalog:/etc/trino/catalog:ro
-      # Mount data directories
-      - ./data:/data
-      - ./sql:/sql:ro
+      - trino-data:/data
+      - ./sql:/sql
     environment:
       - TRINO_ENVIRONMENT=development
     networks:
@@ -25,6 +21,10 @@ services:
       timeout: 10s
       retries: 5
       start_period: 60s
+
+volumes:
+  trino-data:
+    driver: local
 
 networks:
   housing-network:

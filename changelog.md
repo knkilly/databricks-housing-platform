@@ -68,4 +68,6 @@ databricks-housing-platform/
 ## 4 - Create Docker configuration
 
 Make sure docker.yaml is saved using 'LF' not 'CRLF'.
+Updated docker-compose to use the latest version of trinodb/trino.
+Used VSCode 'Run Services' to create the container (checked in Docker Desktop app).
 
