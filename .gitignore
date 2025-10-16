@@ -10,7 +10,7 @@
 config/secrets.json
 
 # Databricks credentials (CRITICAL - never commit!)
-./trino/catalog/databricks.properties
+trino/catalog/databricks.properties*
 
 # ============================================================================
 # Python
