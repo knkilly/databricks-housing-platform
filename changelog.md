@@ -17,25 +17,31 @@ sudo apt install build-essential
 
 ## 2 -Create project directory 
 
-```cmd
-sudo apt update
-sudo apt install tree
+```powershell
+# Define subdirectory structure
+$directories = @(
+    "trino\etc",
+    "trino\catalog",
+    "scripts",
+    "sql",
+    "data\bronze",
+    "data\silver",
+    "data\gold",
+    "data\downloads",
+    "notebooks",
+    "tests",
+    "docs",
+    "logs",
+    "config"
+)
 
-mkdir trino\etc
-mkdir trino\catalog
-mkdir scripts
-mkdir sql
-mkdir data\bronze
-mkdir data\silver
-mkdir data\gold
-mkdir data\downloads
-mkdir notebooks
-mkdir tests
-mkdir docs
-mkdir logs
-mkdir config
+# Create each subdirectory
+foreach ($dir in $directories) {
+    New-Item -Path $dir -ItemType Directory -Force | Out-Null
+}
 
-tree -F
+# Display the directory tree
+tree /F
 ```
 
 ## 3 - Add Project Structure to ReadMe

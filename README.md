@@ -61,7 +61,18 @@ Gold Layer (Analytics & Aggregates)
 databricks-housing-platform/
 ├── README.md                   # This file
 ├── LICENSE                     # MIT License
-└── .gitignore                  # Git ignore rules
+├── .gitignore                  # Git ignore rules
+├── trino/                      # Trino configuration
+│   ├── etc/                    # Trino server config
+│   └── catalog/                # Data source connectors
+├── sql/                        # SQL scripts
+├── scripts/                    # Python ETL scripts
+├── notebooks/                  # Jupyter notebooks for analysis
+├── data/                       # Data files (gitignored)
+│   ├── bronze/
+│   ├── silver/
+│   └── gold/
+└── docs/                       # Documentation
 ```
 
 ## 🎯 Current Status
